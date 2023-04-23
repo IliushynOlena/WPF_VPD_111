@@ -15,5 +15,6 @@
         <Border Background="Pink" Padding="30" >
             <Button Background="Chocolate"></Button>
         </Border>
+        <Image Source="Image/boxmodel.png"></Image>
     </UniformGrid>
 </Window>
