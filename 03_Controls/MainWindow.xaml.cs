@@ -48,12 +48,12 @@ namespace _03_Controls
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             this.Opacity = slider.Value/100;
-            int i = 0;
-            foreach (Button btn in grid.Children.OfType<Button>())
-            {
-                btn.Content = arr[i];
-                i++;
-            }
+            //int i = 0;
+            //foreach (Button btn in grid.Children.OfType<Button>())
+            //{
+            //    btn.Content = arr[i];
+            //    i++;
+            //}
             
         }
 
