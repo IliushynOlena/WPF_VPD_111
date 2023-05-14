@@ -32,6 +32,16 @@ namespace _06_Notebook
         {
             model.deleteSelectedContact();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            model.DeleteAllContact();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            model.DublicateSelectedContact();
+        }
     }
     class ViewModel
     {
@@ -46,10 +56,19 @@ namespace _06_Notebook
 
         }
         public void deleteSelectedContact()
-        {
-   
+        {   
             if(SelectedContact != null)
                 contacts.Remove(SelectedContact);   
+        }
+        public void DublicateSelectedContact()
+        {
+            if (SelectedContact != null)
+                contacts.Add(SelectedContact.Clone());
+        }
+        public void DeleteAllContact()
+        {
+            if (contacts.Any())
+                contacts.Clear();
         }
     }
 }
