@@ -5,7 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_06_Notebook"
         mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=local:ViewModel}"
         Title="MainWindow" Height="450" Width="800">
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding DublicateCommand}" Modifiers="Ctrl" Key="D"></KeyBinding>
+        <KeyBinding Command="{Binding RemoveCommand}"  Key="Delete"></KeyBinding>
+        <KeyBinding Command="{Binding ClearCommand}" Modifiers="Ctrl" Key="W"></KeyBinding>
+    </Window.InputBindings>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Edit">
+                <MenuItem Header="Dublicate" Command="{Binding DublicateCommand}" 
+                          InputGestureText="Ctrl+D"></MenuItem>
+                <MenuItem Header="Remove" Command="{Binding RemoveCommand}" 
+                          InputGestureText="Del"></MenuItem>
+                <MenuItem Header="Clear" Command="{Binding ClearCommand}" 
+                          InputGestureText="Ctrl+W"></MenuItem>
+            </MenuItem>
+        </Menu>
+        
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="100" Width="*"/>
@@ -33,9 +51,11 @@
             <TextBox Text="{Binding SelectedContact.Phone }"  Margin="20,0"></TextBox>
             <Label HorizontalAlignment="Left" Margin="20,0">Is Male:</Label>
             <CheckBox IsChecked="{Binding SelectedContact.IsMale }" Margin="20,0"></CheckBox>
-            <Button Click="Button_Click_2" Background="#FF7EC97E" Margin="20,20,20,5">Create Contact Copy</Button>
-            <Button Click="Button_Click" Background="PaleVioletRed" Margin="20,0">Delete Selected Contact</Button>
-            <Button Click="Button_Click_1" Background="PaleVioletRed" Margin="20,5">Delete All Contact</Button>
+            <Button Command="{Binding DublicateCommand}"  Background="#FF7EC97E" Margin="20,20,20,5">Create Contact Copy</Button>
+            <Button Command="{Binding RemoveCommand}"  Background="PaleVioletRed" Margin="20,0">Delete Selected Contact</Button>
+            <Button Command="{Binding ClearCommand}"  Background="PaleVioletRed" Margin="20,5">Delete All Contact</Button>
         </StackPanel>
     </Grid>
+    </DockPanel>
+    
 </Window>
